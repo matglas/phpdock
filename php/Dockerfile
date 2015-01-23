@@ -3,10 +3,14 @@
 FROM php:5.5-apache
 
 # Install mysql dependencies
-RUN apt-get update && \
-    apt-get -y install mysql-client && a2enmod rewrite && \
-    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-gd-dir=/usr/include/ && \
-    docker-php-ext-install gd
+RUN apt-get update \
+    && apt-get -y install mysql-client \
+    && apt-get -y install git \
+    && apt-get -y install libpng12-dev libfreetype6-dev libjpeg62-turbo-dev \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-gd-dir=/usr/include/ \
+    && docker-php-ext-install gd \
+    && a2enmod rewrite \
+    && apt-get clean
 
 # Install composer related packeges
 ENV DRUSH_VERSION 6.5.0
