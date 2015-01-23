@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker stop phpdock-php-run
-docker stop phpdock-mysql-run
+docker stop phpdock-php
+docker stop phpdock-mysql
