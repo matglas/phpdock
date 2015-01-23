@@ -29,8 +29,7 @@
 #
 docker run --name="phpdock-mysql-run" -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
 
-
-# Run php docker container with container-php/src as webroot.
+# Run php docker container with src as webroot.
 #
 # Command explained:
 #
@@ -46,8 +45,8 @@ docker run --name="phpdock-mysql-run" -e MYSQL_ROOT_PASSWORD=root -d mysql:5.7
 #
 docker run -it --rm --name="phpdock-php-run" -e MYNAME=matthias \
     --link phpdock-mysql-run:mysql \
-    -v /home/vhosts/boxes/phpdock/container-php/build:/var/www/html \
-    -v /home/vhosts/boxes/phpdock/container-php:/home/vhosts/boxes/phpdock/container-php \
+    -v /home/vhosts/boxes/phpdock/src/build:/var/www/html \
+    -v /home/vhosts/boxes/phpdock/src:/home/vhosts/boxes/phpdock/src \
     phpdock-php
 
 # Command explained:
