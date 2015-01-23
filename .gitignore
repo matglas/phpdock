@@ -1,0 +1,5 @@
+.idea
+container-php/build
+container-php/builds
+container-php/cnf
+container-php/src
