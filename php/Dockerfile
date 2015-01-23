@@ -1,3 +1,5 @@
+# Image is based on https://registry.hub.docker.com/_/php/
+# and the php contains the Dockerfile.
 FROM php:5.5-apache
 
 # Install mysql dependencies

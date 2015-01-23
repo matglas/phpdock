@@ -5,6 +5,7 @@
 # Build docker images that are used in the phpdock project.
 
 # Build mysql image with name phpdock-mysql
+#
 # Image is based on https://registry.hub.docker.com/_/mysql/
 # and the mysql contains the Dockerfile.
 docker build -t phpdock-mysql ./mysql
