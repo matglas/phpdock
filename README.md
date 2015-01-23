@@ -6,11 +6,11 @@ for our projects.
 # Containers
 This project has now 2 containers
 
-*PHP*
+## PHP
 The php container is build from the official docker php registry found here.
 https://registry.hub.docker.com/_/php/
 
-*MySql*
+## MySql
 The mysql container is build from the official docker php registry found here.
 https://registry.hub.docker.com/_/mysql/
 
@@ -23,11 +23,11 @@ The following tools are explicitly installed.
 - drush
 - krafwagen (drush commands)
 
-# Fixed to remember
+# Fixes to remember
 During my struggle with Docker and getting to know the way certain things work these are some lessons I learned written
 down in a short manner.
 
-- You need to export $PATH to a .bashrc to be able to use the tools you installed through nsenter.
+- You need to export $PATH to a .bashrc to be able to use the tools you installed through nsenter. See php/Dockerfile.
 
 # Todos
 There are many aspect that could be improved here is a list.
@@ -39,7 +39,6 @@ There are many aspect that could be improved here is a list.
   - Project type (kraftwagen, drupal rootk, wordpress, php)
   - Ip address
 - Include mysql configuration in my.cnf
-- Include php.ini configuration in php.
 - Create a data container.
 - Create a solr container
 - Fixing a but with kraftwagen where symlinks are not relative. This creates a situation where we need to reference the
