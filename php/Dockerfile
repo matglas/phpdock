@@ -25,4 +25,5 @@ ENV PATH /.composer/vendor/bin:$PATH
 # Exporting current path to make tools available when using nsenter.
 RUN echo "export PATH=$PATH" > /.bashrc
 
+COPY config/php.ini /usr/local/lib/
 COPY ./src /var/www/html
