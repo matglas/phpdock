@@ -1,6 +1,10 @@
-# Image is based on https://registry.hub.docker.com/_/php/
+# Image is based on https://registry.hub.docker.com/u/phusion/baseimage/
 # and the php contains the Dockerfile.
-FROM php:5.5-apache
+FROM phusion/baseimage:0.9.16
+
+# Use baseimage-docker's init system.
+CMD ["/sbin/my_init"]
+
 
 # Preinstall some things that don't change.
 RUN apt-get update \
@@ -47,3 +51,7 @@ ENV PATH $HOME/.composer/vendor/bin:$PATH
 RUN echo "export PATH=$PATH" > /.bashrc
 
 COPY config/php.ini /usr/local/lib/
+
+
+# Clean up APT when done.
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
