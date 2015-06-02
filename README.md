@@ -19,6 +19,8 @@ The following tools are explicitly installed.
 
 - mysql
 - php 5.5 w/ apache
+- nano
+- unzip
 - mysql-client
 - drush
 - krafwagen (drush commands)
