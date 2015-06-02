@@ -1,0 +1,12 @@
+db:
+  build: ./mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD=root
+web:
+  build: ./php
+  expose:
+    - 80
+  links:
+    - db:mysql
+  volumes:
+    - /home/vhosts/boxes/phpdock/src:/var/www
