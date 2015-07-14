@@ -3,6 +3,12 @@ This project is made as a test to see how to work with Docker. Through many tuto
 to setup a project that could be reused inside our company. This could be either for development or to run a CI suite
 for our projects.
 
+# Usage
+- Use docker-compose to build/run the containers.
+- Use docker-enter [container_name] to go into the container and run stuff. 
+  This is just for convenience. You could enable ssh but that disabled by default. 
+
+
 # Containers
 This project has now 2 containers
 
@@ -18,23 +24,23 @@ https://registry.hub.docker.com/_/mysql/
 The following tools are explicitly installed.
 
 - mysql
-- php 5.5 w/ apache
+- php 5.5 
+- apache
 - nano
 - unzip
 - mysql-client
 - drush
-- krafwagen (drush commands)
 
 # Fixes to remember
-During my struggle with Docker and getting to know the way certain things work these are some lessons I learned written
-down in a short manner.
+During my struggle with Docker and getting to know the way certain things work 
+these are some lessons I learned written down in a short manner.
 
-- You need to export $PATH to a .bashrc to be able to use the tools you installed through nsenter. See php/Dockerfile.
+- You need to export $PATH to a .bashrc to be able to use the tools you 
+  installed through nsenter/docker-enter. See php/Dockerfile.
 
 # Todos
 There are many aspect that could be improved here is a list.
 
-- Fix missing gd extension on php container.
 - Setup a configuration file (projectmanifest)
   - Project name
   - Project folder

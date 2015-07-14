@@ -1,12 +1,26 @@
+# -- Web site root --
+# The web container uses /var/www/html as site root. Make sure src/html is
+# available or has a relative symlink.
+#
+# 'password' => getenv('MYSQL_ENV_MYSQL_ROOT_PASSWORD'),
+# 'host'     => getenv('MYSQL_PORT_3306_TCP_ADDR'),
+
+data:
+  image: ubuntu:14.04
+  volumes:
+    - /var/logs
+    - src:/var/www
 db:
   build: ./mysql
   environment:
     - MYSQL_ROOT_PASSWORD=root
+  volumes_from:
+    - data
 web:
   build: ./php
   expose:
     - 80
   links:
     - db:mysql
-  volumes:
-    - /home/vhosts/boxes/phpdock/src:/var/www
+  volumes_from:
+    - data
