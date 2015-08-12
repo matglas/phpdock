@@ -1,6 +1,6 @@
 # -- Web site root --
-# The web container uses /var/www/html as site root. Make sure src/html is
-# available or has a relative symlink.
+# The web container uses /var/www/html as site root. Make sure the html  dir is
+# available or has is symlinked correctly.
 #
 # 'password' => getenv('MYSQL_ENV_MYSQL_ROOT_PASSWORD'),
 # 'host'     => getenv('MYSQL_PORT_3306_TCP_ADDR'),
