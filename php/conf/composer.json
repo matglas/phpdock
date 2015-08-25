@@ -1,0 +1,10 @@
+{
+  "require": {
+    "pear/console_table": "1.1.5",
+    "drush/drush": "6.*"
+  },
+  "config": {
+    "bin-dir": "/usr/local/bin"
+  },
+  "minimum-stability": "beta"
+}

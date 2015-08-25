@@ -9,18 +9,11 @@ data:
   image: ubuntu:14.04
   volumes:
     - /var/logs
-    - src:/var/www
-db:
-  build: ./mysql
-  environment:
-    - MYSQL_ROOT_PASSWORD=root
-  volumes_from:
-    - data
+    - ./../:/var/www
 web:
-  build: ./php
+  build: ./../php
   expose:
     - 80
-  links:
-    - db:mysql
   volumes_from:
     - data
+  command: /root/build.sh
