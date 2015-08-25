@@ -24,5 +24,6 @@ RUN cd \
 RUN git clone -b master --depth=1 https://github.com/kraftwagen/kraftwagen.git /root/.drush/commands/kraftwagen
 
 COPY scripts/build.sh /root/build.sh
+COPY scripts/rm.sh /root/rm.sh
 RUN chmod u+x /root/build.sh
 

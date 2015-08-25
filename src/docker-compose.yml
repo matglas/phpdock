@@ -1,19 +1,25 @@
-# -- Web site root --
-# The web container uses /var/www/html as site root. Make sure the html  dir is
-# available or has is symlinked correctly.
-#
-# 'password' => getenv('MYSQL_ENV_MYSQL_ROOT_PASSWORD'),
-# 'host'     => getenv('MYSQL_PORT_3306_TCP_ADDR'),
-
+# Mounting the data
 data:
   image: ubuntu:14.04
   volumes:
     - /var/logs
     - ./../:/var/www
+
+# This should be the web container running as deamon.
 web:
   build: ./../php
   expose:
     - 80
   volumes_from:
     - data
-  command: /root/build.sh
+  command: php -S localhost:8000
+
+# This should be
+ctl:
+  build: ./../php
+  volumes_from:
+    - data
+  tty: true
+
+# To remove all the build stuff run from the src:
+# docker-compose run ctl rm.sh
