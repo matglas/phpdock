@@ -1,0 +1,9 @@
+name = VDMI Test
+description = Default theme for VDMI Test
+
+engine = phptemplate
+
+core = 7.x
+php = 5.2
+
+stylesheets[all][] = layout.css
