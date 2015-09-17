@@ -8,6 +8,8 @@ RUN apt-get update -q \
     unzip \
     nano \
     wget \
+    apache2 \
+    libapache2-mod-php5 \
   && apt-get clean
 
 # Install composer related packages.
@@ -26,4 +28,6 @@ RUN git clone -b master --depth=1 https://github.com/kraftwagen/kraftwagen.git /
 COPY scripts/build.sh /root/build.sh
 COPY scripts/rm.sh /root/rm.sh
 RUN chmod u+x /root/build.sh
+
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 
