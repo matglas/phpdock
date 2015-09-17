@@ -10,6 +10,6 @@ echo "# Krafwagen build"
 drush kw-b --debug
 echo "#"
 
-chown www-data:www-data -R /var/www/
+chown www-data:www-data -R /var/www/build/
 
 ln -s /var/www/build /var/www/html
