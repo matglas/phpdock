@@ -10,17 +10,15 @@ data:
   volumes:
     - /var/logs
     - src:/var/www
-db:
-  build: ./mysql
-  environment:
-    - MYSQL_ROOT_PASSWORD=root
-  volumes_from:
-    - data
+#db:
+#  build: ./mysql
+#  environment:
+#    - MYSQL_ROOT_PASSWORD=root
+#  volumes_from:
+#    - data
 web:
   build: ./php
-  expose:
+  ports:
     - 80
-  links:
-    - db:mysql
   volumes_from:
     - data
