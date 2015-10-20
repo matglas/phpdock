@@ -44,12 +44,9 @@ RUN cd $HOME \
     && mv composer.phar /usr/local/bin/composer
 
 # Install drush.
-ENV DRUSH_VERSION 7.0.0
+ENV DRUSH_VERSION 8.0.0-rc1
 RUN composer global require drush/drush:$DRUSH_VERSION --prefer-source \
     && drush cc drush
-
-# Prepare apache
-RUN a2enmod rewrite alias
 
 # Exporting current path to make tools available when using nsenter.
 RUN echo "export PATH=$PATH" >> $HOME/.bashrc \
