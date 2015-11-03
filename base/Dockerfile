@@ -52,5 +52,8 @@ RUN composer global require drush/drush:$DRUSH_VERSION --prefer-source \
 RUN echo "export PATH=$PATH" >> $HOME/.bashrc \
     && echo "export TERM=xterm" >> $HOME/.bashrc
 
+# Install Phing
+RUN pear channel-discover pear.phing.info && pear install --alldeps phing/phing
+
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
