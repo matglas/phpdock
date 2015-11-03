@@ -22,7 +22,7 @@ RUN apt-get update && apt-get -y install \
     php5 php5-fpm php5-gd php5-ldap \
     php5-sqlite php5-pgsql php-pear php5-mysql php5-curl \
     php5-mcrypt php5-xmlrpc php5-intl php5-xdebug \
-    php-pear build-essential curl
+    build-essential curl
 
 ##
 # Now all our stuff.
@@ -51,22 +51,6 @@ RUN composer global require drush/drush:$DRUSH_VERSION --prefer-source \
 # Exporting current path to make tools available when using nsenter.
 RUN echo "export PATH=$PATH" >> $HOME/.bashrc \
     && echo "export TERM=xterm" >> $HOME/.bashrc
-
-# Install Phing and dependencies
-RUN pear channel-discover pear.phing.info \
-    && pear channel-discover pear.pdepend.org \ 
-    && pear channel-discover pear.phpmd.org \
-    && pear channel-discover pear.phpunit.de \
-    && pear channel-discover components.ez.no \
-    && pear channel-discover pear.symfony-project.com \
-    && pear install --alldeps phing/phing \
-    && pear install -a phpmd/PHP_PMD \
-    && pear install phpunit/phpcpd \
-    && pear install phpunit/phploc \
-    && pear install PHPDocumentor \
-    && pear install PHP_CodeSniffer \
-    && pear install HTTP_Request2 \
-    && pear install -a phpunit/PHP_CodeBrowser
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
