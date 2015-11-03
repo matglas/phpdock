@@ -22,7 +22,7 @@ RUN apt-get update && apt-get -y install \
     php5 php5-fpm php5-gd php5-ldap \
     php5-sqlite php5-pgsql php-pear php5-mysql php5-curl \
     php5-mcrypt php5-xmlrpc php5-intl php5-xdebug \
-    build-essential curl
+    build-essential curl mysql-client
 
 ##
 # Now all our stuff.
