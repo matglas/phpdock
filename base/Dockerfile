@@ -42,6 +42,7 @@ ENV PATH $PATH:$HOME/.composer/vendor/bin
 RUN cd $HOME \
     && curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
+    && composer config --global cache-dir /cache/composer
 
 # Install drush.
 ENV DRUSH_VERSION 8.0.0-rc1
