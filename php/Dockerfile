@@ -1,6 +1,7 @@
 # Image is based on https://registry.hub.docker.com/u/phusion/baseimage/
 # and the php contains the Dockerfile.
 FROM matglas/phpdock-base:latest
+VOLUME ["/var/www"]
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
